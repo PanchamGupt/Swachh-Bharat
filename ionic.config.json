@@ -1,5 +1,7 @@
 {
   "name": "garbage",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

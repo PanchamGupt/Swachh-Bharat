@@ -6,10 +6,10 @@ import { HomeComponent } from './components/home/home.component';
 import { PastReportsComponent } from './components/past-reports/past-reports.component';
 
 const routes: Routes = [
-  // {
-  //   path: 'home',
-  //   loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  // },
+  {
+    path: 'click-photo',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
   // {
   //   path: '',
   //   redirectTo: 'home',
