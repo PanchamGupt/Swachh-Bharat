@@ -4,6 +4,7 @@ import { SigninComponent } from './components/signin/signin.component';
 // import { TabsComponent } from './components/tabs/tabs.component';
 import { HomeComponent } from './components/home/home.component';
 import { PastReportsComponent } from './components/past-reports/past-reports.component';
+import { MapComponent } from './components/map/map.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,9 @@ const routes: Routes = [
 
   {
     path:'', component:SigninComponent
+  },
+  {
+    path:'map', component:MapComponent
   },
   {
     path:'home', component:HomeComponent

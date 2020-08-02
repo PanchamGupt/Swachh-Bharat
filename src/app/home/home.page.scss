@@ -9,7 +9,9 @@ ion-buttons{
   margin-top: -45px;
 }
 
-
+.homeImage{
+  height:85vh;
+}
 img{
   width:100vw;
   height:70vh;
@@ -37,7 +39,7 @@ padding: 0;
 }
 
 
-.re-take{
+.home{
   position: absolute;
   top:12vh;
   right:7vw;
@@ -49,6 +51,21 @@ padding: 0;
 font-weight: 700;
 }
 
-.re-take ion-icon{
+
+
+.dustbin{
+  position: absolute;
+  top:97vh;
+  right:7vw;
+  color:white;
+  --background: #5a585859 0% 0% no-repeat padding-box;
+  border-radius: 9px;
+  backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+font-weight: 700;
+}
+
+
+ion-icon{
   color:white;
 }

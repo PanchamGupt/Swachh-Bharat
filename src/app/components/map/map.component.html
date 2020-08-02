@@ -1,0 +1,45 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+  
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false" class='text-warning'>
+    
+      </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<div class="add-report">
+  <div class="row">
+  <div class="col-6">
+    <h6  style="font-weight: 900;">Today's Reports</h6>
+  </div> 
+  <div class="col-1 ml-auto " >
+    <ion-icon name="remove"></ion-icon>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-1 "></div>
+  <div class="col-5 ">
+    <ion-icon name="calendar-outline"></ion-icon><small> &nbsp; 16-07-2020</small> 
+  </div>
+  
+  <div class="col-5 ">
+    <ion-icon name="location-outline"></ion-icon> <small>&nbsp; Reported Location</small>
+  </div>
+  <div class="col-1 "></div>
+</div>
+
+<div class="row " >
+  <div class="col-3"></div>
+  <div class="col-6 add my-auto " (click)="addReport()">
+<ion-item color="none" lines="none"><ion-icon name="add-circle"></ion-icon>&nbsp; Add Report</ion-item>
+  </div>
+</div>
+</div>
+
+</ion-content>

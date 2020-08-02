@@ -19,25 +19,43 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-<img [src]='currentImage'/>
+  <div class="homeImage">
+    <img [src]='currentImageHome'/>
 
-<h4 class="text-center">Picture of House Address</h4>
+    <h5 class="text-center">Picture of House Address</h5>
+  </div>
+
+
+<!-- <hr/> -->
+<!-- 2 -->
+<div class="dustbinImage">
+<img [src]='currentImageDustBin'/>
+
+<h5 class="text-center">Picture of Dustbin / Mixed Waste</h5>
+</div>
+
+<br/>
 
 <ion-button class="reject">
   <ion-item color="none">
   <ion-icon name="close-sharp" ></ion-icon>Reject</ion-item>
 </ion-button>
 
-<ion-button class="select">
+<ion-button class="select" (click)="select()">
   <ion-item color="none">
   <ion-icon name="checkmark-sharp" ></ion-icon>Select</ion-item>
 </ion-button>
 
 
 
-<ion-item class="re-take" lines="none" (click)="tackPicture()">
+<ion-item class="home" lines="none" (click)="tackPictureHome()">
   <ion-icon name="camera" ></ion-icon> &nbsp;Re-Take Photo
 </ion-item>
+
+
+<ion-item class="dustbin" lines="none" (click)="tackPictureDustBin()">
+  <ion-icon name="camera" ></ion-icon> &nbsp;Re-Take Photo
+</ion-item>
+<br/><br/>
 
 </ion-content>

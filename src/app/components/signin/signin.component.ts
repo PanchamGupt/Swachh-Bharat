@@ -13,7 +13,7 @@ export class SigninComponent implements OnInit {
   ngOnInit() {}
 
 signIn(){
-this.router.navigate(["/home"])
+this.router.navigate(["/map"])
 }
 
 }
