@@ -1,0 +1,74 @@
+// ion-header{
+//     --background:#7FBB00;
+//     height: 30px;
+//   }
+
+  ion-toolbar{
+    --background:#7FBB00;
+    --color:white;
+   
+    height:50px;
+  }
+  
+
+  ion-buttons{
+    margin-top: -45px;
+
+  }
+  
+
+  h5{
+      margin-left: 5vw;
+      font-weight: 900;
+  }
+
+  .issue{
+      height:48px;
+// padding-top: 5px;
+      width:90vw;
+      margin:5px 5vw;
+     
+      border-radius: 24px;
+
+
+  }
+
+  .issue-1{
+    border:2px solid #7FBB00;
+  }
+
+  .issue-2{
+    border:2px solid #0082BB;
+  }
+
+  .issue-3{
+    border:2px solid #BB0000;
+  }
+
+  .issue-4{
+    border:2px solid #BB7600;
+  }
+
+
+  ion-input {
+      width:90vw;
+      margin-left: 5vw;
+      border: 2px solid #22222261;
+      border-radius: 5px;
+  }
+
+
+  ion-button{
+   
+    --background:  #7FBB00;
+  
+    width:80vw;
+    margin:3vh 10vw  ;
+    height: 46px;
+    /* UI Properties */
+    text-align: left;
+    font: SemiBold 16px/25px Poppins;
+    
+    color: #FFFFFF;
+  
+}
