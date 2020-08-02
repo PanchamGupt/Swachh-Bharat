@@ -104,6 +104,6 @@ dist
 .tern-port
 platforms/
 plugins/
-resources/
+# resources/
 
 www/
