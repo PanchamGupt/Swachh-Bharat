@@ -1,17 +1,17 @@
 <ion-app>
   <ion-menu side="start" menuId="first" contentId="main">
     <ion-header>
-      <ion-toolbar >
-        <!-- <ion-title>Start Menu</ion-title> -->
+      <ion-toolbar class="ion-text-center ion-margin-end">
+        <ion-title>3 Bins</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item [routerLink]="['/home']"><ion-icon name="home-outline" slot="start"></ion-icon>Home</ion-item>
+        <!-- <ion-item [routerLink]="['/home']"><ion-icon name="home-outline" slot="start"></ion-icon>Home</ion-item> -->
         <ion-item [routerLink]="['/map']"><ion-icon name="add-circle-outline" slot="start"></ion-icon>Add Reports</ion-item>
         <ion-item [routerLink]="['/past-reports']"><ion-icon name="document-text-outline" slot="start"></ion-icon>Past Reports</ion-item>
-        <ion-item><ion-icon name="settings-outline" slot="start"></ion-icon>Settings</ion-item>
-        <!-- <ion-item>Menu Item</ion-item> -->
+        <ion-item [routerLink]="['/settings']"><ion-icon name="settings-outline" slot="start"></ion-icon>Settings</ion-item>
+        <ion-item [routerLink]="['/learn']"><ion-icon name="book" slot="start"></ion-icon>Learn How To Use</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>

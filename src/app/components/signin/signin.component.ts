@@ -8,12 +8,13 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-signIn(){
-this.router.navigate(["/map"])
-}
+  signIn() {
+    console.log('singin')
+    this.router.navigate(["/map"])
+  }
 
 }

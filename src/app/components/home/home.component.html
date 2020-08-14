@@ -1,25 +1,27 @@
-
 <ion-header class="ion-no-border">
-  <ion-toolbar>
-    <!-- <ion-title>Header - No Border</ion-title> -->
-    <ion-buttons slot="start">
-      <ion-menu-button autoHide="false" class='text-warning'>
-    
-      </ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar>
+        <!-- <ion-title>Header - No Border</ion-title> -->
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="false" class="text-warning">
+            </ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 <ion-content>
-<ion-img src="../../../assets/_SPJ5184-Edited.png"></ion-img>
-<h5>Select Issue</h5>
-<ion-item class="issue issue-1" lines="none">Wet and Dry waste is mixed</ion-item>
-<ion-item class="issue issue-2" lines="none">Only One Dustbin</ion-item>
-<ion-item class="issue issue-3" lines="none">No red bin for Hazardous waste</ion-item>
-<ion-item class="issue issue-4" lines="none">Dustbin are not colored coded</ion-item>
+    <ion-img src="../../../assets/_SPJ5184-Edited.png"></ion-img>
+    <br />
+    <h5>Select Issue</h5>
+    <ion-item class="issue issue-1" lines="none"
+        >Wet and Dry waste is mixed</ion-item
+    >
+    <ion-item class="issue issue-2" lines="none"
+        >Hazardous waste is mixed with other wastes</ion-item
+    >
 
-<h5>Location</h5>
+    <br />
+    <h5>Location</h5>
 
-<ion-input placeholder="Type Address here"></ion-input>
+    <ion-input placeholder="Type Address here"></ion-input>
 
-<ion-button expand="block">Save & Submit</ion-button>
+    <ion-button expand="block" (click)="save()">Save & Submit</ion-button>
 </ion-content>

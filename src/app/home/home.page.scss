@@ -1,71 +1,69 @@
-ion-toolbar{
-  --background:#7FBB00;
-  --color:white;
- 
-  height:50px;
+ion-toolbar {
+    --background: #7fbb00;
+    --color: white;
+
+    height: 50px;
 }
 
-ion-buttons{
-  margin-top: -45px;
+ion-buttons {
+    color: white;
+    margin-top: -15px;
 }
-
-.homeImage{
-  height:85vh;
+.homeImage {
+    height: 85vh;
 }
-img{
-  width:100vw;
-  height:70vh;
-  margin-bottom: 15px;
+img {
+    width: 100vw;
+    height: 70vh;
+    margin-bottom: 15px;
 }
 .reject {
-  --background:#F44336;
+    --background: #f44336;
 
-  margin-left: 10vw;
-  padding: 0;
-  height:45px;
+    margin-left: 10vw;
+    padding: 0;
+    height: 45px;
 }
 .select {
-  --background:#7FBB00;
-
-  padding: 0;
-  height:45px;
+    align-content: center;
+    align-items: center;
+    --background: #7fbb00;
+    padding: 0;
+    height: 45px;
+    width: 100%;
 }
 
-ion-button ion-item{
-  font-size: 16px;
-color:white;
-font-weight: 700;
-padding: 0;
+ion-button ion-item {
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+    padding: 0;
 }
 
-
-.home{
-  position: absolute;
-  top:12vh;
-  right:7vw;
-  color:white;
-  --background: #5a585859 0% 0% no-repeat padding-box;
-  border-radius: 9px;
-  backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-font-weight: 700;
+.home {
+    position: absolute;
+    top: 65vh;
+    right: 10vw;
+    color: white;
+    --background: #1d1b1b59 0% 0% no-repeat padding-box;
+    border-radius: 9px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    font-weight: 700;
 }
 
-
-
-.dustbin{
-  position: absolute;
-  top:97vh;
-  right:7vw;
-  color:white;
-  --background: #5a585859 0% 0% no-repeat padding-box;
-  border-radius: 9px;
-  backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-font-weight: 700;
+.dustbin {
+    position: absolute;
+    top: 150vh;
+    right: 7vw;
+    color: white;
+    --background: #1d1b1b59 0% 0% no-repeat padding-box;
+    border-radius: 9px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    font-weight: 700;
 }
 
-
-ion-icon{
-  color:white;
+ion-icon {
+    color: white;
 }

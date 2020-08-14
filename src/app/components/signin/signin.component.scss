@@ -1,115 +1,101 @@
+.img {
+    height: 38vh;
+}
 
-.header{
-    height:3vh;
+.header {
+    height: 3vh;
     background: var(--unnamed-color-7fbb00) 0% 0% no-repeat padding-box;
-    background: #7FBB00 0% 0% no-repeat padding-box;
+    background: #7fbb00 0% 0% no-repeat padding-box;
     opacity: 1;
 }
 
-
-.header2{
-    height:38vh;
-    background: var(--unnamed-color-222222) 0% 0% no-repeat padding-box;
-    background: #222222 0% 0% no-repeat padding-box;
+.header2 {
+    height: 38vh;
+    // background: var(--unnamed-color-222222) 0% 0% no-repeat padding-box;
+    // background: #222222 0% 0% no-repeat padding-box;
+    background-image: url('../../../assets/Company logo_v01.jpg') no-repeat cover;
     opacity: 1;
 }
 
-
-.welcome{
+.welcome {
     margin-left: 10vw;
-  
 
-text-align: left;
-font: Bold 30px/50px Poppins;
-letter-spacing: 0px;
-color: #222222;
-opacity: 1;
+    text-align: left;
+    font: Bold 30px/50px Poppins;
+    letter-spacing: 0px;
+    color: #222222;
+    opacity: 1;
 }
 
-
-.welcome-2{
-margin: -28px 10vw 5vh;
-text-align: left;
-font: small 15px/26px Poppins;
-font-size: 13px;
-letter-spacing: 0px;
-color: #A6A7B5;
-opacity: 1;
+.welcome-2 {
+    margin: -28px 10vw 5vh;
+    text-align: left;
+    font: small 15px/26px Poppins;
+    font-size: 13px;
+    letter-spacing: 0px;
+    color: #a6a7b5;
+    opacity: 1;
 }
 
-
-ion-item{
-margin:2px 10vw;
-width: 80vw;
-height: 46px;
-border: 1px solid #F7F7FF;
-border-radius: 8px;
-border: 1px solid #F7F7FF;
---background:#F7F7FF;
+ion-item {
+    margin: 2px 10vw;
+    width: 80vw;
+    height: 46px;
+    border: 1px solid #f7f7ff;
+    border-radius: 8px;
+    border: 1px solid #f7f7ff;
+    --background: #f7f7ff;
 }
 
-
-
-ion-input::placeholder{
-    color:#A6A7B5;
-// height: 46px;
-//     background: #2E2F50 0% 0% no-repeat padding-box;
-// border: 1px solid #F7F7FF;
-// border-radius: 8px;
-// opacity: 0.05;
+ion-input::placeholder {
+    color: #a6a7b5;
+    // height: 46px;
+    //     background: #2E2F50 0% 0% no-repeat padding-box;
+    // border: 1px solid #F7F7FF;
+    // border-radius: 8px;
+    // opacity: 0.05;
 }
 
-
-ion-icon{
-    color:#A6A7B5;
+ion-icon {
+    color: #a6a7b5;
 }
 
-
-.forgot{
-  
+.forgot {
     // width: 101px;
-    // height: 16px; 
-    float:right;
+    // height: 16px;
+    float: right;
     margin-right: 10vw;
-font: SemiBold 11px/17px Poppins;
-font-size: 11px;
-font-weight: 700;
+    font: SemiBold 11px/17px Poppins;
+    font-size: 11px;
+    font-weight: 700;
 
-color: #707187;
-
+    color: #707187;
 }
 
+ion-button {
+    --background: #7fbb00;
 
-
-ion-button{
-   
-    --background:  #7FBB00;
-  
-    width:80vw;
-    margin:8vh  10vw 4vh;
+    width: 80vw;
+    margin: 8vh 10vw 4vh;
     height: 46px;
     /* UI Properties */
     text-align: left;
     font: SemiBold 16px/25px Poppins;
-    
-    color: #FFFFFF;
-  
+
+    color: #ffffff;
 }
 
-
-.signup{
-
-text-align: center;
-font: Regular 11px/17px Poppins;
-letter-spacing: 0.39px;
-color: #707187;
-font-size: 12px;
-opacity: 1;
+.signup {
+    text-align: center;
+    font: Regular 11px/17px Poppins;
+    letter-spacing: 0.39px;
+    color: #707187;
+    font-size: 12px;
+    opacity: 1;
 }
 
-.signup span{
-   
-    color:#7FBB00;
+.signup span {
+    color: #7fbb00;
     font-weight: 600;
 }
 

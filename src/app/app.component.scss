@@ -1,18 +1,15 @@
-ion-item ion-icon{
-    color:#7FBB00;
+ion-item ion-icon {
+    color: #7fbb00;
     font-weight: 900;
 }
 
 
-// ion-item:hover{
-//     color:#7FBB00;
-//     font-weight: 900;
-// }
+ion-app {
+    padding-top: 10px;
+}
 
-ion-toolbar{
-    --background:#7FBB00;
-    --color:white;
-   
-    height:50px;
-  }
-  
+ion-toolbar {
+    --background: #7fbb00;
+    --color: white;
+    height: 50px;
+}

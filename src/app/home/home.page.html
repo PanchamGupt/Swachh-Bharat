@@ -36,25 +36,25 @@
 
 <br/>
 
-<ion-button class="reject">
+<!-- <ion-button class="reject">
   <ion-item color="none">
   <ion-icon name="close-sharp" ></ion-icon>Reject</ion-item>
-</ion-button>
+</ion-button> -->
 
 <ion-button class="select" (click)="select()">
   <ion-item color="none">
-  <ion-icon name="checkmark-sharp" ></ion-icon>Select</ion-item>
+  <ion-icon name="checkmark-sharp" ></ion-icon>Save Images</ion-item>
 </ion-button>
 
 
 
 <ion-item class="home" lines="none" (click)="tackPictureHome()">
-  <ion-icon name="camera" ></ion-icon> &nbsp;Re-Take Photo
+  <ion-icon name="camera" ></ion-icon> &nbsp;{{housePictureButtonText}}
 </ion-item>
 
 
 <ion-item class="dustbin" lines="none" (click)="tackPictureDustBin()">
-  <ion-icon name="camera" ></ion-icon> &nbsp;Re-Take Photo
+  <ion-icon name="camera" ></ion-icon> &nbsp;{{wastePictureButtonText}}
 </ion-item>
 <br/><br/>
 
