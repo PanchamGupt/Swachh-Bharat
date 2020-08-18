@@ -3,6 +3,13 @@ import { Router } from '@angular/router';
 import { makeBindingParser } from '@angular/compiler';
 
 declare var google:any;
+interface Marker {
+  position: {
+    lat: number,
+    lng: number,
+  };
+  title: string;
+}
 
 @Component({
   selector: 'app-map',
@@ -19,6 +26,11 @@ markers:any=[
     title:"National Art Gallery",
     latitude:'-17.824991',
     longitude:'31.049295'
+  },
+  {
+    title:"West End Hospital",
+    latitude:'-17.820987',
+    longitude:'31.052042'
   }
 ];
 
@@ -31,7 +43,6 @@ ionViewDidEnter(){
 }
 
 
-
 showMap(){
   const location=new google.maps.LatLng(-17.824858,31.053028);
   const options={
@@ -42,6 +53,9 @@ showMap(){
   this.map=new google.maps.Map(this.mapRef.nativeElement,options)
   console.log(this.map)
   this.addMarkersToMap(this.markers)
+
+
+ 
 }
 
 
@@ -67,9 +81,9 @@ let infoWindowContent='<div id="content">'+
                        '<h2 id="firstHeading" class="firstHeading">' +marker.title +'</h2>'+
                        '<P>Latitude: ' +marker.latitude +'</p>'+
                        '<P>Longitude: ' +marker.longitude +'</p>'+
-                       '</div>  '
+                       '</div>';
 
-  let infoWindow= new google.maps.infoWindow({
+  let infoWindow= new google.maps.InfoWindow({
     content:infoWindowContent
   });
 

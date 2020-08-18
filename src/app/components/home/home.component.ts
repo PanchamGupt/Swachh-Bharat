@@ -26,9 +26,13 @@ geoencoderOptions: NativeGeocoderOptions = {
   constructor(private router: Router, private geolocation: Geolocation , private nativeGeocoder: NativeGeocoder) { }
 
   ngOnInit() {
-    // this.currentLocation()
+    // this.currentLocation() //2nd  method
     this.getGeolocation()
+  
    }
+
+
+
 
 
   //  //Get current coordinates of device
@@ -40,6 +44,7 @@ geoencoderOptions: NativeGeocoderOptions = {
       this.accuracy = resp.coords.accuracy;
 console.log( this.latitude,this.longitude)
       this.getGeoencoder(resp.coords.latitude, resp.coords.longitude);
+      
 
     }).catch((error) => {
       alert('Error getting location' + JSON.stringify(error));
@@ -51,7 +56,7 @@ console.log( this.latitude,this.longitude)
   getGeoencoder(latitude, longitude) {
     this.nativeGeocoder.reverseGeocode(latitude, longitude, this.geoencoderOptions)
       .then((result: NativeGeocoderResult[]) => {
-        // console.log(result)
+        console.log(result[0])
         this.address = this.generateAddress(result[0]);
       })
       .catch((error: any) => {
@@ -80,9 +85,12 @@ console.log( this.latitude,this.longitude)
     return address.slice(0, -2);
   }
 
+
+
+  // 2rd method
+
   // currentLocation(){
 
-  
   // this.geolocation.getCurrentPosition(
   //   {maximumAge: 1000, timeout: 5000,
   //    enableHighAccuracy: true }
@@ -103,6 +111,9 @@ console.log( this.latitude,this.longitude)
   //         });
 
   //       }
+
+
+
   save() {
     this.router.navigate(['/map'])
   }
