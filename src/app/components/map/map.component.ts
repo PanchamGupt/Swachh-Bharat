@@ -1,110 +1,135 @@
-import { Component, OnInit, AfterContentInit, ViewChild,ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
-import { makeBindingParser } from '@angular/compiler';
+import {
+    Component,
+    OnInit,
+    AfterContentInit,
+    ViewChild,
+    ElementRef,
+} from "@angular/core";
+import { Router } from "@angular/router";
+import { makeBindingParser } from "@angular/compiler";
+import { Geolocation } from "@ionic-native/geolocation/ngx";
 
-declare var google:any;
-interface Marker {
-  position: {
-    lat: number,
-    lng: number,
-  };
-  title: string;
-}
+declare var google: any;
 
 @Component({
-  selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss'],
+    selector: "app-map",
+    templateUrl: "./map.component.html",
+    styleUrls: ["./map.component.scss"],
 })
 export class MapComponent implements OnInit {
-map:any;
-@ViewChild('map',{read:ElementRef,static:false}) mapRef:ElementRef;
+    map: any;
+    @ViewChild("map", { read: ElementRef, static: false }) mapRef: ElementRef;
 
-infoWindows:any=[];
-markers:any=[
-  {
-    title:"National Art Gallery",
-    latitude:'-17.824991',
-    longitude:'31.049295'
-  },
-  {
-    title:"West End Hospital",
-    latitude:'-17.820987',
-    longitude:'31.052042'
-  }
-];
+    infoWindows: any = [];
+    markers: any = [
+        {
+            title: "National Art Gallery",
+            latitude: "26.4700414",
+            longitude: "80.2902713",
+        },
+        {
+            title: "National Art Gallery",
+            latitude: "-17.834991",
+            longitude: "31.049295",
+        },
+    ];
 
-  constructor(private router:Router) { }
+    latitude: number;
+    longitude: number;
+    accuracy: number;
 
-  ngOnInit() {}
+    constructor(private router: Router, private geolocation: Geolocation) {}
 
-ionViewDidEnter(){
-  this.showMap();
-}
+    ngOnInit() {}
 
-
-showMap(){
-  const location=new google.maps.LatLng(-17.824858,31.053028);
-  const options={
-    center:location,
-    zoom:15,
-    disableDefaultUI:true
-  }
-  this.map=new google.maps.Map(this.mapRef.nativeElement,options)
-  console.log(this.map)
-  this.addMarkersToMap(this.markers)
-
-
- 
-}
-
-
-// Add Marker
-
-addMarkersToMap(markers){
-    for(let marker of markers){
-      let position=new google.maps.LatLng(marker.latitude,marker.longitude);
-      let mapMarker= new google.maps.Marker({
-        position:position,
-        title:marker.title,
-        latitude:marker.latitude,
-        longitude:marker.longitude
-      });
-      mapMarker.setMap(this.map);
-      this.addInfoWindowToMarker(mapMarker);
+    ionViewDidEnter() {
+        this.getGeolocation();
     }
-  }
 
-
-  addInfoWindowToMarker(marker){
-let infoWindowContent='<div id="content">'+
-                       '<h2 id="firstHeading" class="firstHeading">' +marker.title +'</h2>'+
-                       '<P>Latitude: ' +marker.latitude +'</p>'+
-                       '<P>Longitude: ' +marker.longitude +'</p>'+
-                       '</div>';
-
-  let infoWindow= new google.maps.InfoWindow({
-    content:infoWindowContent
-  });
-
-  marker.addListener('click',()=>{
-    console.log("click")
-    this.closeAllInfoWindows();
-    infoWindow.open(this.map,marker);
-  });
-  this.infoWindows.push(infoWindow)
-  }
-
-
-  closeAllInfoWindows(){
-    for(let window of this.infoWindows){
-      window.close();
+    //  //Get current coordinates of device
+    getGeolocation() {
+        this.geolocation
+            .getCurrentPosition()
+            .then((resp) => {
+                this.latitude = resp.coords.latitude;
+                this.longitude = resp.coords.longitude;
+                this.accuracy = resp.coords.accuracy;
+                console.log(this.latitude, this.longitude);
+                this.showMap(this.latitude, this.longitude);
+                // this.getGeoencoder(resp.coords.latitude, resp.coords.longitude);
+            })
+            .catch((error) => {
+                alert("Error getting location" + JSON.stringify(error));
+            });
     }
-  }
 
-  addReport(){
-this.router.navigate(['/click-photo'])
-  }
+    showMap(lat, lng) {
+        const location = new google.maps.LatLng(lat, lng);
+        const options = {
+            center: location,
+            zoom: 15,
+            disableDefaultUI: false,
+        };
+        this.map = new google.maps.Map(this.mapRef.nativeElement, options);
+        console.log(this.map);
+        this.addMarkersToMap([
+            { title: "Current Location", latitude: lat, longitude: lng },
+        ]);
+    }
 
+    // Add Marker
 
+    addMarkersToMap(markers) {
+        for (let marker of markers) {
+            let position = new google.maps.LatLng(
+                marker.latitude,
+                marker.longitude
+            );
+            let mapMarker = new google.maps.Marker({
+                position: position,
+                title: marker.title,
+                latitude: marker.latitude,
+                longitude: marker.longitude,
+                // icon: "../../assets/Company logo_v01.jpg"
+            });
+            mapMarker.setMap(this.map);
+            this.addInfoWindowToMarker(mapMarker);
+        }
+    }
+
+    addInfoWindowToMarker(marker) {
+        let infoWindowContent =
+            '<div id="content">' +
+            '<h2 id="firstHeading" class="firstHeading">' +
+            marker.title +
+            "</h2>" +
+            "<P>Latitude: " +
+            marker.latitude +
+            "</p>" +
+            "<P>Longitude: " +
+            marker.longitude +
+            "</p>" +
+            "</div>  ";
+
+        let infoWindow = new google.maps.InfoWindow({
+            content: infoWindowContent,
+        });
+
+        marker.addListener("click", () => {
+            console.log("click");
+            this.closeAllInfoWindows();
+            infoWindow.open(this.map, marker);
+        });
+        this.infoWindows.push(infoWindow);
+    }
+
+    closeAllInfoWindows() {
+        for (let window of this.infoWindows) {
+            window.close();
+        }
+    }
+
+    addReport() {
+        this.router.navigate(["/click-photo"]);
+    }
 }

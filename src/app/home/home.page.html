@@ -11,7 +11,7 @@
   <ion-toolbar>
   
     <ion-buttons slot="start">
-      <ion-menu-button autoHide="false" class='text-warning'>
+      <ion-menu-button autoHide="false" >
     
       </ion-menu-button>
     </ion-buttons>
@@ -41,9 +41,12 @@
   <ion-icon name="close-sharp" ></ion-icon>Reject</ion-item>
 </ion-button> -->
 
-<ion-button class="select" (click)="select()">
+<ion-button class="select" (click)="select()" [disabled]="!(housePictureButtonText ==='Retake Image' && wastePictureButtonText ==='Retake Image')">
   <ion-item color="none">
-  <ion-icon name="checkmark-sharp" ></ion-icon>Save Images</ion-item>
+  <ion-icon name="checkmark-sharp" 
+  >
+
+  </ion-icon>Save Images</ion-item>
 </ion-button>
 
 
