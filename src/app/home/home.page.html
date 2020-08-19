@@ -41,7 +41,7 @@
   <ion-icon name="close-sharp" ></ion-icon>Reject</ion-item>
 </ion-button> -->
 
-<ion-button class="select" (click)="select()" [disabled]="!(housePictureButtonText ==='Retake Image' && wastePictureButtonText ==='Retake Image')">
+<ion-button class="select" (click)="select()" [disabled]="(housePictureButtonText ==='Retake Image' && wastePictureButtonText ==='Retake Image')">
   <ion-item color="none">
   <ion-icon name="checkmark-sharp" 
   >
