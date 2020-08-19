@@ -9,7 +9,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-
+import {Network} from '@ionic-native/network/ngx'
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
@@ -20,12 +20,13 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
      IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
      AppRoutingModule],
+    
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
     NativeGeocoder,
-     
+    Network,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
