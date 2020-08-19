@@ -54,12 +54,10 @@ export class MapComponent implements OnInit {
                 this.latitude = resp.coords.latitude;
                 this.longitude = resp.coords.longitude;
                 this.accuracy = resp.coords.accuracy;
-                console.log(this.latitude, this.longitude);
                 this.showMap(this.latitude, this.longitude);
-                // this.getGeoencoder(resp.coords.latitude, resp.coords.longitude);
             })
             .catch((error) => {
-                alert("Error getting location" + JSON.stringify(error));
+                this.showMap(26.4700414, 80.2902713);
             });
     }
 

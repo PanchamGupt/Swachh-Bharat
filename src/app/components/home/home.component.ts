@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { Router ,ActivatedRoute} from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { Geolocation } from "@ionic-native/geolocation/ngx";
 import {
     NativeGeocoder,
     NativeGeocoderOptions,
     NativeGeocoderResult,
 } from "@ionic-native/native-geocoder/ngx";
-import { Storage } from '@ionic/storage';
+import { Storage } from "@ionic/storage";
 import { AlertController } from "@ionic/angular";
 
 @Component({
@@ -21,14 +21,14 @@ export class HomeComponent implements OnInit {
     latitude: number;
     longitude: number;
     accuracy: number;
-    localData=[]
-data={
-    homeImage:'',
-    dustbinImage:'',
-    longitude:null,
-    latitude:null,
-    issue:''
-}
+    localData = [];
+    data = {
+        homeImage: "",
+        dustbinImage: "",
+        longitude: null,
+        latitude: null,
+        issue: "",
+    };
     issue_1_class = "issue issue-1";
     issue_2_class = "issue issue-2";
 
@@ -41,26 +41,24 @@ data={
         private route: ActivatedRoute,
         private geolocation: Geolocation,
         private nativeGeocoder: NativeGeocoder,
-        private storage:Storage,
+        private storage: Storage,
         private alertCtrl: AlertController
-    ) {
-       
-    }
+    ) {}
 
     ngOnInit() {
         this.getGeolocation();
-       
 
-        this.route.queryParams.subscribe(params => {
-            console.log(params)
+        this.route.queryParams.subscribe((params) => {
+            console.log(params);
             if (this.router.getCurrentNavigation().extras.state) {
-                this.data.homeImage=this.router.getCurrentNavigation().extras.state.homeImage;
-                this.data.dustbinImage=this.router.getCurrentNavigation().extras.state.dustbinImage;
+                this.data.homeImage = this.router.getCurrentNavigation().extras.state.homeImage;
+                this.data.dustbinImage = this.router.getCurrentNavigation().extras.state.dustbinImage;
             }
-          });
+        });
 
-        this.storage.get('localData').then(localdata=>this.localData=localdata)
-
+        this.storage
+            .get("localData")
+            .then((localdata) => (this.localData = localdata));
     }
 
     getGeolocation() {
@@ -72,9 +70,9 @@ data={
                 this.accuracy = resp.coords.accuracy;
                 console.log(this.latitude, this.longitude);
 
-                this.data.latitude=this.latitude;
-                this.data.longitude=this.longitude;
-              
+                this.data.latitude = this.latitude;
+                this.data.longitude = this.longitude;
+
                 this.getGeoencoder(resp.coords.latitude, resp.coords.longitude);
             })
             .catch((error) => {
@@ -86,11 +84,11 @@ data={
         if (i === 1) {
             this.issue_2_class = "issue issue-2";
             this.issue_1_class = "issue issue-1-selected";
-            this.data.issue="Wet and Dry waste is mixed"
+            this.data.issue = "Wet and Dry waste is mixed";
         } else {
             this.issue_2_class = "issue issue-2-selected";
             this.issue_1_class = "issue issue-1";
-            this.data.issue="Hazardous waste is mixed with other wastes"
+            this.data.issue = "Hazardous waste is mixed with other wastes";
         }
     }
 
@@ -137,15 +135,13 @@ data={
     }
 
     save() {
-      
-         if(this.localData===null){
-            this.storage.set('localData', [this.data]);  
-        }else{
-            this.localData.push(this.data)
-            this.storage.set('localData', this.localData);
+        if (this.localData === null) {
+            this.storage.set("localData", [this.data]);
+        } else {
+            this.localData.push(this.data);
+            this.storage.set("localData", this.localData);
         }
-this.storage.remove('image').then()
+        this.storage.remove("image").then();
         this.showAlert();
-     
     }
 }
