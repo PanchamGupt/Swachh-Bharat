@@ -38,12 +38,18 @@ const routes: Routes = [
     },
     {
         path: "past-reports",
-        component: PastReportsComponent,
+        loadChildren: () =>
+            import("./pages/past-reports/past-reports.module").then((m) => m.PastReportsPageModule),
     },
     {
         path: "learn",
         component: TutorialComponent,
     },
+  {
+    path: 'past-reports',
+    loadChildren: () => import('./pages/past-reports/past-reports.module').then( m => m.PastReportsPageModule)
+  },
+
 ];
 
 @NgModule({

@@ -24,7 +24,7 @@ export class HomePage implements OnInit {
 
     async tackPictureHome() {
         const option: CameraOptions = {
-            quality: 100,
+            quality: 20,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE,
@@ -45,7 +45,7 @@ export class HomePage implements OnInit {
 
     async tackPictureDustBin() {
         const option: CameraOptions = {
-            quality: 100,
+            quality: 20,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,
             mediaType: this.camera.MediaType.PICTURE,
@@ -69,7 +69,6 @@ export class HomePage implements OnInit {
         let navigationExtras: NavigationExtras = {
             state: data,
         };
-
         this.router.navigate(["/home"], navigationExtras);
     }
 

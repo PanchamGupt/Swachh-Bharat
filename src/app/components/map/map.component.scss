@@ -9,8 +9,13 @@ ion-content {
 }
 
 ion-buttons {
+    margin-top: 5px;
+}
+ion-title {
     margin-top: 10px;
-    height: 30px;
+}
+ion-icon {
+    font-size: 30px;
 }
 
 .show-loc {

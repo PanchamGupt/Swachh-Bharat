@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
 
         this.user = JSON.parse(localStorage.getItem("user"));
         if (!this.user) {
-            this.router.navigate(['/map'])
+            this.router.navigate(["/map"]);
         }
         this.route.queryParams.subscribe((params) => {
             if (this.router.getCurrentNavigation().extras.state) {
@@ -180,11 +180,14 @@ export class HomeComponent implements OnInit {
             waste: this.data.dustbinImage,
         };
 
+        this.presentLoading()
         this.service.postReport(body).subscribe(
-            (data) => {
-                console.log(data)
+            async (data) => {
+                this.loading.dismiss()
+                console.log(data);
                 this.showAlert();
             },
+
             (err) => {
                 console.log("err", err);
             }

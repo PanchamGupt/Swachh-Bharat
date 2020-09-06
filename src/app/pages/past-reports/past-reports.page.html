@@ -1,0 +1,66 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+      <!-- <ion-title>Header - No Border</ion-title> -->
+      <ion-buttons slot="start">
+          <ion-menu-button autoHide="false" >
+          </ion-menu-button>
+      </ion-buttons>
+      <ion-title>Past Reports</ion-title>
+	  <ion-icon name="person" slot="end"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <h5>Past Reports</h5>
+
+  <!-- pagination -->
+
+  <nav aria-label="Page navigation example">
+      <ul class="pagination">
+          <li class="page-item">
+              <a class="page-link" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+              </a>
+          </li>
+          <li class="page-item"><a class="page-link">1</a></li>
+          <li class="page-item"><a class="page-link">2</a></li>
+          <li class="page-item"><a class="page-link">3</a></li>
+          <li class="page-item"><a class="page-link">4</a></li>
+          <li class="page-item"><a class="page-link">5</a></li>
+          <li class="page-item"><a class="page-link">6</a></li>
+
+          <li class="page-item">
+              <a class="page-link" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+              </a>
+          </li>
+      </ul>
+  </nav>
+
+  <!--  -->
+  <div class="filter">
+      Today's Reports : <span>{{reports.length}}</span>
+  </div>
+  <br />
+
+  <ion-card *ngFor="let report of reports">
+      <ion-card-content>
+          <div class="row">
+              <div class="col-4">
+                  <ion-img src="{{getImage(report.waste_picture)}}"></ion-img>
+              </div>
+              <div class="col-7 card-content">
+                  <h6>{{report.address}}</h6>
+                  <p>
+                      <ion-icon name="time-outline"></ion-icon>
+                      <span>{{getDate(report.collection_date)}} </span>
+                  </p>
+                  <p>
+                      <ion-icon name="alert-circle-outline"></ion-icon>Issue :
+                      <span>{{report.reason}}</span>
+                  </p>
+              </div>
+          </div>
+      </ion-card-content>
+  </ion-card>
+
+  </ion-content>

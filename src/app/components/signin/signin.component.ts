@@ -20,7 +20,12 @@ export class SigninComponent implements OnInit {
         public alertController: AlertController
     ) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        const user = localStorage.getItem('user')
+        if (user) {
+            this.router.navigate(['/map'])
+        }
+    }
 
     async presentLoading() {
         this.loading = await this.loadingController.create({
