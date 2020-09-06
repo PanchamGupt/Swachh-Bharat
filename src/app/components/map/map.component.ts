@@ -8,6 +8,13 @@ import {
 import { Router } from "@angular/router";
 import { makeBindingParser } from "@angular/compiler";
 import { Geolocation } from "@ionic-native/geolocation/ngx";
+import {
+    NativeGeocoderOptions,
+    NativeGeocoder,
+    NativeGeocoderResult,
+} from "@ionic-native/native-geocoder/ngx";
+import { CollectorService } from "src/app/services/collector.service";
+import { LoadingController } from "@ionic/angular";
 
 declare var google: any;
 
@@ -37,16 +44,86 @@ export class MapComponent implements OnInit {
     latitude: number;
     longitude: number;
     accuracy: number;
+    location: string;
+    dateToday: String;
+    user: any;
+    loading: any;
 
-    constructor(private router: Router, private geolocation: Geolocation) {}
+    constructor(
+        private router: Router,
+        private geolocation: Geolocation,
+        private nativeGeocoder: NativeGeocoder,
+        private service: CollectorService,
+        public loadingController: LoadingController
+    ) {}
 
-    ngOnInit() {}
-
-    ionViewDidEnter() {
-        this.getGeolocation();
+    ngOnInit() {
+        this.dateToday = new Date().toDateString();
+        this.user = JSON.parse(localStorage.getItem("user"));
+        this.presentLoading();
+        this.fetchReports();
     }
 
-    //  //Get current coordinates of device
+    async presentLoading() {
+        this.loading = await this.loadingController.create({
+            cssClass: "my-custom-class",
+            message: "Please wait...",
+            duration: 3000,
+        });
+        await this.loading.present();
+    }
+
+    fetchReports() {
+        this.service.fetchReports(this.user.id).subscribe((data) => {
+            if (data.response.data.length) {
+                const repo = data.response.data.map((report) => {
+                    return {
+                        title: report.reason,
+                        latitude: report.lat,
+                        longitude: report.long,
+                    };
+                });
+                this.markers = repo;
+                this.getGeolocation();
+            } else {
+                this.markers = [];
+                this.getGeolocation();
+            }
+        });
+    }
+
+    ionViewDidEnter() {
+        // this.getGeolocation();
+    }
+
+    geoencoderOptions: NativeGeocoderOptions = {
+        useLocale: true,
+        maxResults: 5,
+    };
+
+    getGeoencoder(latitude, longitude) {
+        this.nativeGeocoder
+            .reverseGeocode(latitude, longitude, this.geoencoderOptions)
+            .then((result: NativeGeocoderResult[]) => {
+                const location = {
+                    lat: result[0].latitude,
+                    long: result[0].longitude,
+                    sublocality: result[0].subLocality,
+                    locality: result[0].locality,
+                    city: result[0].subAdministrativeArea,
+                    state: result[0].administrativeArea,
+                    pincode: result[0].postalCode,
+                };
+                this.location = location.sublocality
+                    ? location.sublocality
+                    : location.locality;
+            })
+            .catch((error: any) => {
+                console.log("Error");
+                // alert("Error getting location" + JSON.stringify(error));
+            });
+    }
+
     getGeolocation() {
         this.geolocation
             .getCurrentPosition()
@@ -55,7 +132,9 @@ export class MapComponent implements OnInit {
                 this.longitude = resp.coords.longitude;
                 this.accuracy = resp.coords.accuracy;
                 this.showMap(this.latitude, this.longitude);
+                this.getGeoencoder(resp.coords.latitude, resp.coords.longitude);
             })
+
             .catch((error) => {
                 this.showMap(26.4700414, 80.2902713);
             });
@@ -66,13 +145,10 @@ export class MapComponent implements OnInit {
         const options = {
             center: location,
             zoom: 15,
-            disableDefaultUI: false,
+            disableDefaultUI: true,
         };
         this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-        console.log(this.map);
-        this.addMarkersToMap([
-            { title: "Current Location", latitude: lat, longitude: lng },
-        ]);
+        this.addMarkersToMap(this.markers);
     }
 
     // Add Marker
@@ -88,7 +164,6 @@ export class MapComponent implements OnInit {
                 title: marker.title,
                 latitude: marker.latitude,
                 longitude: marker.longitude,
-                // icon: "../../assets/Company logo_v01.jpg"
             });
             mapMarker.setMap(this.map);
             this.addInfoWindowToMarker(mapMarker);
@@ -97,17 +172,10 @@ export class MapComponent implements OnInit {
 
     addInfoWindowToMarker(marker) {
         let infoWindowContent =
-            '<div id="content">' +
-            '<h2 id="firstHeading" class="firstHeading">' +
+            "<div id='content' style='background-color': 'rgba(0, 0, 0, 0.75)'>" +
+            '<h4 id="firstHeading" class="firstHeading">' +
             marker.title +
-            "</h2>" +
-            "<P>Latitude: " +
-            marker.latitude +
-            "</p>" +
-            "<P>Longitude: " +
-            marker.longitude +
-            "</p>" +
-            "</div>  ";
+            "</h4>";
 
         let infoWindow = new google.maps.InfoWindow({
             content: infoWindowContent,
@@ -129,5 +197,7 @@ export class MapComponent implements OnInit {
 
     addReport() {
         this.router.navigate(["/click-photo"]);
+        // console.log("c");
+        // this.router.navigate(["/home"]);
     }
 }

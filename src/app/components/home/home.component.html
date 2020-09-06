@@ -2,8 +2,7 @@
     <ion-toolbar>
         <!-- <ion-title>Header - No Border</ion-title> -->
         <ion-buttons slot="start">
-            <ion-menu-button autoHide="false" >
-            </ion-menu-button>
+            <ion-menu-button autoHide="false"> </ion-menu-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -11,21 +10,23 @@
     <ion-img src="../../../assets/_SPJ5184-Edited.png"></ion-img>
     <br />
     <h5>Select Issue</h5>
-    <ion-item (click)="selectIssue(1)" class={{issue_1_class}} lines="none"
+    <ion-item (click)="selectIssue(1)" class="{{ issue_1_class }}" lines="none"
         >Wet and Dry waste is mixed</ion-item
     >
-    <ion-item (click)="selectIssue(2)" class={{issue_2_class}} lines="none"
+    <ion-item (click)="selectIssue(2)" class="{{ issue_2_class }}" lines="none"
         >Hazardous waste is mixed with other wastes</ion-item
     >
 
     <br />
+    <div *ngIf="location">{{ location | json }}</div>
     <h5>Location</h5>
-
     <ion-textarea
         rows="4"
         placeholder="Type Address here"
         readonly
         value="{{ address }}"
     ></ion-textarea>
-    <ion-button expand="block" (click)="save()" [disabled]='!data.issue'>Save & Submit</ion-button>
+    <ion-button expand="block" (click)="save()" [disabled]="!data.issue"
+        >Save & Submit</ion-button
+    >
 </ion-content>

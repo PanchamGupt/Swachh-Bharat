@@ -1,42 +1,35 @@
+<ion-content>
+    <div class="header"></div>
 
+    <div class="header2">
+        <ion-img class="img" src="../../assets/Company logo_v01.jpg"></ion-img>
+    </div>
 
-<ion-content >
+    <p class="welcome">WELCOME</p>
+    <p class="welcome-2">Sign-in to continue !</p>
 
-  <div class="header">
-  
-  </div>
-  
-  <div class="header2">
-    <ion-img class="img" src="../../assets/Company logo_v01.jpg"></ion-img>
-  </div>  
-  
-  <p class="welcome">WELCOME</p>
-  <p class="welcome-2">Sign-in to continue !</p>
-  
-  
-  <!-- <ion-input formControlName="password" placeholder="Password">
-    <ion-icon name="person" item-right></ion-icon>
-    </ion-input> -->
-  <ion-item class="username" lines="none">
-   
-    <ion-input placeholder="username or email"></ion-input>
-    <ion-icon name="person" slot="start"></ion-icon>
-  </ion-item>
-  
-  <ion-item class="password" lines="none">
-   
-    <ion-input placeholder="**********"></ion-input>
-    <ion-icon name="lock-closed" slot="start"></ion-icon>
-  </ion-item>
-  
-  <p class="forgot">Forgot Password ?</p>
-  
-  <ion-button expand="block" (click)="signIn()">LOGIN</ion-button>
-  
-  <p class="signup">Don't Have an account ?<span> Sign Up Now!</span></p>
-  
-  
-  
-  
-  
-  </ion-content>
+    <ion-item class="username" lines="none">
+        <ion-input
+            [value]="id"
+            (input)="read(0, $event)"
+            placeholder="username or email"
+        ></ion-input>
+        <ion-icon name="person" slot="start"></ion-icon>
+    </ion-item>
+
+    <ion-item class="password" lines="none">
+        <ion-input
+            [value]="password"
+            (input)="read(1, $event)"
+            type="password"
+            placeholder="**********"
+        ></ion-input>
+        <ion-icon name="lock-closed" slot="start"></ion-icon>
+    </ion-item>
+
+    <p class="forgot">Forgot Password ?</p>
+
+    <ion-button expand="block" (click)="signIn()">LOGIN</ion-button>
+
+    <p class="signup">Don't Have an account ?<span> Sign Up Now!</span></p>
+</ion-content>

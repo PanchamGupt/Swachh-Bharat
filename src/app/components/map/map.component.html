@@ -1,51 +1,43 @@
 <ion-header class="ion-no-border" [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons id="but" slot="start">
-      <ion-menu-button autoHide="false" >
-      </ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons id="but" slot="start">
+            <ion-menu-button size="larger" autoHide="false"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<!-- map -->
-  <!-- <ion-img src="../../../assets/download.png"></ion-img> -->
-  <div #map class="map">
-
-  </div>
-
-
-  <!--  -->
-  <div class="add-report ion-text-center">
-    <div class="row">
-      <div class="col-12 " >
-        <h6 style="font-weight: 900;">Reported Mixed Wastes</h6>
-      </div>
-      
+    <div #map class="map"></div>
+    <div class="show-loc ion-text-center">
+        <div class="row">
+            <div class="col-12">
+                <ion-icon name="location"></ion-icon> {{ " " + location }}
+            </div>
+        </div>
     </div>
 
-    <div class="row">
+    <!--  -->
+    <div class="add-report ion-text-center">
+        <div class="row">
+            <div class="col-12">
+                <h6 style="font-weight: 900">Reported Mixed Wastes</h6>
+            </div>
+        </div>
 
-      
-      <div class="col-12">
-        <ion-icon name="calendar-outline"></ion-icon><small> &nbsp; 16-07-2020</small>
-      </div>
+        <div class="row">
+            <div class="col-12">
+                <ion-icon name="calendar-outline"></ion-icon
+                ><small> &nbsp; {{dateToday}}</small>
+            </div>
+        </div>
 
-      <!-- <div class="col-5 ">
-        <ion-icon name="location-outline"></ion-icon> <small>&nbsp; Reported Location</small>
-      </div>
-      <div class="col-1 "></div> -->
-      
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 add my-auto" (click)="addReport()">
+                <ion-item color="none" lines="none">
+                    <ion-icon name="add-circle"></ion-icon>&nbsp; Add Report
+                </ion-item>
+            </div>
+        </div>
     </div>
-
-    <div class="row ">
-      <div class="col-3"></div>
-      <div class="col-6 add my-auto " (click)="addReport()">
-        <ion-item color="none" lines="none">
-          <ion-icon name="add-circle"></ion-icon>&nbsp; Add Report
-        </ion-item>
-      </div>
-    </div>
-  </div>
-
 </ion-content>

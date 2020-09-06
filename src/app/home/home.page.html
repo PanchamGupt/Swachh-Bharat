@@ -1,64 +1,42 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-
 <ion-header class="ion-no-border" [translucent]="true">
-  <ion-toolbar>
-  
-    <ion-buttons slot="start">
-      <ion-menu-button autoHide="false" >
-    
-      </ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="false"> </ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="homeImage">
-    <img [src]='currentImageHome'/>
+    <div class="homeImage">
+        <img [src]="currentImageHome" />
 
-    <h5 class="text-center">Picture of House Address</h5>
-  </div>
+        <h5 class="text-center">Picture of House Address</h5>
+    </div>
 
+    <div class="dustbinImage">
+        <img [src]="currentImageDustBin" />
 
-<!-- <hr/> -->
-<!-- 2 -->
-<div class="dustbinImage">
-<img [src]='currentImageDustBin'/>
+        <h5 class="text-center">Picture of Dustbin / Mixed Waste</h5>
+    </div>
 
-<h5 class="text-center">Picture of Dustbin / Mixed Waste</h5>
-</div>
+    <br />
 
-<br/>
+    <ion-button
+        class="select"
+        (click)="select()"
+        [disabled]="!(housePictureButtonText ==='Retake Image' && wastePictureButtonText ==='Retake Image')"
+    >
+        <ion-item color="none">
+            <ion-icon name="checkmark-sharp"> </ion-icon>Save Images</ion-item
+        >
+    </ion-button>
 
-<!-- <ion-button class="reject">
-  <ion-item color="none">
-  <ion-icon name="close-sharp" ></ion-icon>Reject</ion-item>
-</ion-button> -->
+    <ion-item class="home" lines="none" (click)="tackPictureHome()">
+        <ion-icon name="camera"></ion-icon> &nbsp;{{housePictureButtonText}}
+    </ion-item>
 
-<ion-button class="select" (click)="select()" [disabled]="(housePictureButtonText ==='Retake Image' && wastePictureButtonText ==='Retake Image')">
-  <ion-item color="none">
-  <ion-icon name="checkmark-sharp" 
-  >
-
-  </ion-icon>Save Images</ion-item>
-</ion-button>
-
-
-
-<ion-item class="home" lines="none" (click)="tackPictureHome()">
-  <ion-icon name="camera" ></ion-icon> &nbsp;{{housePictureButtonText}}
-</ion-item>
-
-
-<ion-item class="dustbin" lines="none" (click)="tackPictureDustBin()">
-  <ion-icon name="camera" ></ion-icon> &nbsp;{{wastePictureButtonText}}
-</ion-item>
-<br/><br/>
-
+    <ion-item class="dustbin" lines="none" (click)="tackPictureDustBin()">
+        <ion-icon name="camera"></ion-icon> &nbsp;{{wastePictureButtonText}}
+    </ion-item>
+    <br /><br />
 </ion-content>

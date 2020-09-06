@@ -1,9 +1,18 @@
-ion-item ion-icon {
-    color: #7fbb00;
-    font-weight: 900;
+ion-item {
+    padding-bottom: 25px;
+    font-size: larger;
 }
 
-
+ion-item ion-icon {
+    color: #7fbb00;
+    font-weight: 500;
+}
+ion-title {
+    font-size: 20px;
+}
+ion-icon {
+    margin-right: 12px;
+}
 ion-app {
     padding-top: 10px;
 }
@@ -11,5 +20,5 @@ ion-app {
 ion-toolbar {
     --background: #7fbb00;
     --color: white;
-    height: 50px;
+    height: 70px;
 }
