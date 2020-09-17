@@ -3,7 +3,7 @@
     <name>3 Bins Collector</name>
     <description>Garbage Collector App for 3 Bins.</description>
     <author email="shashankshukla96@gmail.com" href="http://ionicframework.com/">PixlBox Tech Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://localhost:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

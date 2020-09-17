@@ -109,3 +109,7 @@ plugins/
 www/
 
 android/
+platforms/
+www/
+e2e/
+resources/
