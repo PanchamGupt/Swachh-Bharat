@@ -7,26 +7,25 @@
         </ion-header>
         <ion-content>
             <ion-list>
-                <ion-item [routerLink]="['/map']"
+                <ion-item [routerLink]="['/tabs/tab/map']" (click)="toggleMenu()"
                     ><ion-icon name="add-circle-outline" slot="start"></ion-icon
                     >Add Reports</ion-item
                 >
-                <ion-item [routerLink]="['/past-reports']"
-                    ><ion-icon
-                        name="document-text-outline"
-                        slot="start"
-                    ></ion-icon
-                    >Past Reports</ion-item
-                >
-                <ion-item [routerLink]="['/settings']"
+
+                <ion-item [routerLink]="['/tabs/tab/past-reports']" (click)="toggleMenu()"
+                ><ion-icon name="document-text-outline" slot="start"></ion-icon
+                >Past Reports</ion-item
+            >
+              
+                <ion-item [routerLink]="['/settings']" (click)="toggleMenu()"
                     ><ion-icon name="settings-outline" slot="start"></ion-icon
                     >Settings</ion-item
                 >
-                <ion-item [routerLink]="['/learn']"
+                <ion-item [routerLink]="['/learn']" (click)="toggleMenu()"
                     ><ion-icon name="book-outline" slot="start"></ion-icon>Learn
                     How To Use</ion-item
                 >
-                <ion-item [routerLink]="['/']"
+                <ion-item [routerLink]="['/']" (click)="toggleMenu()"
                     ><ion-icon name="book-outline" slot="start"></ion-icon>Log
                     Out</ion-item
                 >

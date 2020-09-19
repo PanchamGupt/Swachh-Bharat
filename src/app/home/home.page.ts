@@ -69,7 +69,7 @@ export class HomePage implements OnInit {
         let navigationExtras: NavigationExtras = {
             state: data,
         };
-        this.router.navigate(["/home"], navigationExtras);
+        this.router.navigate(["/issue-type"], navigationExtras);
     }
 
     save() {

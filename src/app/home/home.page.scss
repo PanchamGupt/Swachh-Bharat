@@ -10,13 +10,19 @@ ion-buttons {
 }
 
 .homeImage {
-    height: 50vh;
+    height: 39vh;
+    // margin-top: 10px;
+    // border:1px solid;
 }
-
+.dustbinImage{
+    height: 39vh;
+    margin-top: 10px;
+    // border:1px solid red;
+}
 img {
-    width: 100vw;
-    height: 40vh;
-    margin-bottom: 15px;
+    width: 92vw;
+    height: 33vh;
+    margin:10px 4vw;
 }
 
 .reject {
@@ -31,7 +37,8 @@ img {
     --background: #7fbb00;
     padding: 0;
     height: 45px;
-    width: 100%;
+    width: 92vw;
+    margin-left:4vw;
 }
 
 ion-button ion-item {
@@ -43,7 +50,7 @@ ion-button ion-item {
 
 .home {
     position: absolute;
-    top: 15vh;
+    top: 39vh;
     right: 10vw;
     color: white;
     --background: #1d1b1b59 0% 0% no-repeat padding-box;
@@ -55,18 +62,17 @@ ion-button ion-item {
 
 .dustbin {
     position: absolute;
-    top: 65vh;
-    right: 7vw;
+    top: 79vh;
+    right: 5vw;
     color: white;
     --background: #1d1b1b59 0% 0% no-repeat padding-box;
     border-radius: 9px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     font-weight: 700;
+ 
 }
 
-ion-icon {
-    --color: white;
-}
+
 
 

@@ -15,8 +15,8 @@ export class AppComponent {
         private platform: Platform,
         private splashScreen: SplashScreen,
         private statusBar: StatusBar,
-
-        private menu: MenuController
+        public menuCtrl: MenuController
+    
     ) {
         this.initializeApp();
     }
@@ -28,17 +28,7 @@ export class AppComponent {
         });
     }
 
-    openFirst() {
-        this.menu.enable(true, "first");
-        this.menu.open("first");
-    }
-
-    openEnd() {
-        this.menu.open("end");
-    }
-
-    openCustom() {
-        this.menu.enable(true, "custom");
-        this.menu.open("custom");
-    }
+    toggleMenu() {
+        this.menuCtrl.toggle(); //Add this method to your button click function
+      }
 }

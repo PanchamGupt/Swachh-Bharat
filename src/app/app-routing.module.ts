@@ -2,11 +2,12 @@ import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 import { SigninComponent } from "./components/signin/signin.component";
 // import { TabsComponent } from './components/tabs/tabs.component';
-import { HomeComponent } from "./components/home/home.component";
-import { PastReportsComponent } from "./components/past-reports/past-reports.component";
+
+
 import { MapComponent } from "./components/map/map.component";
 import { TutorialComponent } from "./components/tutorial/tutorial.component";
 import { SettingsComponent } from "./components/settings/settings.component";
+import { IssueTypeComponent } from './components/issue-type/issue-type.component';
 
 const routes: Routes = [
     {
@@ -19,36 +20,40 @@ const routes: Routes = [
     //   redirectTo: 'home',
     //   pathMatch: 'full'
     // },
-
+    {
+        path: 'tabs',
+        loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+      },
     {
         path: "",
         component: SigninComponent,
     },
+
+    // {
+    //     // path: "map",
+    //     // component: MapComponent,
+    //     path: 'tabs',
+    //     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+    // },
     {
-        path: "map",
-        component: MapComponent,
-    },
-    {
-        path: "home",
-        component: HomeComponent,
+        path: "issue-type",
+        component: IssueTypeComponent,
     },
     {
         path: "settings",
         component: SettingsComponent,
     },
-    {
-        path: "past-reports",
-        loadChildren: () =>
-            import("./pages/past-reports/past-reports.module").then((m) => m.PastReportsPageModule),
-    },
+    // {
+    //     path: "past-reports",
+    //     loadChildren: () =>
+    //         import("./pages/past-reports/past-reports.module").then((m) => m.PastReportsPageModule),
+    // },
     {
         path: "learn",
         component: TutorialComponent,
     },
-  {
-    path: 'past-reports',
-    loadChildren: () => import('./pages/past-reports/past-reports.module').then( m => m.PastReportsPageModule)
-  },
+
+  
 
 ];
 

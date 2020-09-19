@@ -55,6 +55,7 @@ export class SigninComponent implements OnInit {
     }
 
     signIn() {
+        this.router.navigate(["tabs/tab/map"]);
         this.presentLoading();
         console.log(this.id, this.password);
         this.service.login(this.id, this.password).subscribe(
@@ -62,7 +63,7 @@ export class SigninComponent implements OnInit {
                 await this.loading.onDidDismiss();
                 if (data.response.status === 200) {
                     localStorage.setItem('user', JSON.stringify(data.response.data))
-                    this.router.navigate(["/map"]);
+                    this.router.navigate(["tabs/tab/map"]);
                 } else {
                     console.log(data);
                     this.presentAlert("Login Failed");

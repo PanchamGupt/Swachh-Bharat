@@ -7,16 +7,21 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+   
     <div class="homeImage">
+        <h5 class="text-center">Click Picture of House Address</h5>
+
         <img [src]="currentImageHome" />
 
-        <h5 class="text-center">Picture of House Address</h5>
+       
     </div>
 
     <div class="dustbinImage">
+        <h5 class="text-center">Click Picture of Dustbin / Mixed Waste</h5>
+  
         <img [src]="currentImageDustBin" />
 
-        <h5 class="text-center">Picture of Dustbin / Mixed Waste</h5>
+  
     </div>
 
     <br />
@@ -24,19 +29,20 @@
     <ion-button
         class="select"
         (click)="select()"
-        [disabled]="!(housePictureButtonText ==='Retake Image' && wastePictureButtonText ==='Retake Image')"
+       
     >
+     <!-- [disabled]="!(housePictureButtonText ==='Retake Image')" -->
         <ion-item color="none">
             <ion-icon name="checkmark-sharp"> </ion-icon>Save Images</ion-item
         >
     </ion-button>
 
-    <ion-item class="home" lines="none" (click)="tackPictureHome()">
-        <ion-icon name="camera"></ion-icon> &nbsp;{{housePictureButtonText}}
+    <ion-item class="home " lines="none" (click)="tackPictureHome()">
+        <ion-icon name="camera" color="bright"></ion-icon> &nbsp;{{housePictureButtonText}}
     </ion-item>
 
-    <ion-item class="dustbin" lines="none" (click)="tackPictureDustBin()">
-        <ion-icon name="camera"></ion-icon> &nbsp;{{wastePictureButtonText}}
+    <ion-item class="dustbin " lines="none" (click)="tackPictureDustBin()">
+        <ion-icon name="camera" color="bright"></ion-icon> &nbsp;{{wastePictureButtonText}}
     </ion-item>
     <br /><br />
 </ion-content>
