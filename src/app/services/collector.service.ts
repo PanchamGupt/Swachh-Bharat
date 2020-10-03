@@ -9,6 +9,7 @@ export class CollectorService {
     constructor(private http: HttpClient) {}
 
     login(id, password) {
+        console.log(`${environment.base_url}/collector/login`)
         return this.http.post<any>(`${environment.base_url}/collector/login`, {
             id,
             password,

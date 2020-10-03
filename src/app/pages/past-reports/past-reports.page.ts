@@ -32,7 +32,6 @@ export class PastReportsPage implements OnInit, ViewDidEnter {
     }
 
     getImage(image) {
-        console.log(`${environment.base_url}/${image}`);
         return `${environment.base_url}/${image}`;
     }
 
@@ -43,9 +42,8 @@ export class PastReportsPage implements OnInit, ViewDidEnter {
             if (data.response.data.length) {
                 const reports = data.response.data;
                 this.reports = reports;
-				console.log("Rep", reports);
-				
             } else {
+                console.log()
             }
         });
     }
