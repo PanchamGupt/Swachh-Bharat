@@ -12,15 +12,59 @@ export class PastReportsPage implements OnInit, ViewDidEnter {
     user: any;
     reports = [];
     loading;
+    date
+    dates=[]
+    noOfDays
     constructor(
         private service: CollectorService,
         private loadingController: LoadingController
     ) {}
 
     ngOnInit() {
+        const today=new Date()
+        this.date=today.getDate()
+        this.noOfDays= new Date(today.getFullYear(),today.getMonth()+1, 0).getDate();
+        console.log(this.noOfDays)
+       this.generateDates(this.date,0)
+
         this.user = JSON.parse(localStorage.getItem("user"));
         this.fetchReports();
     }
+
+    generateDates(date,i){
+        this.dates=[]
+        const fromdate=date-3+i
+        const toDate=fromdate+7
+        for(let i=fromdate;i<toDate;i++){
+          this.dates.push(i)
+        }
+      
+        if(this.dates[0]===1){
+              document.getElementById("pre").style.pointerEvents = "none";
+              document.getElementById("pre").style.opacity = "0.5";
+        
+          document.getElementById("next").style.pointerEvents = "auto";
+          document.getElementById("next").style.opacity = "1";
+        }
+        else if(this.dates[6]===this.noOfDays){
+          document.getElementById("pre").style.pointerEvents = "auto";
+              document.getElementById("pre").style.opacity = "1";
+          
+          document.getElementById("next").style.pointerEvents = "none";
+          document.getElementById("next").style.opacity = "0.5";
+        }
+        else{
+          document.getElementById("pre").style.pointerEvents = "auto";
+          document.getElementById("pre").style.opacity = "1";
+       
+          document.getElementById("next").style.pointerEvents = "auto";
+          document.getElementById("next").style.opacity = "";
+        }
+        
+      }
+      
+
+
 
     ionViewDidEnter() {}
     async presentLoading() {

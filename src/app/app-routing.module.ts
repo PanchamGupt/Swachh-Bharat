@@ -28,6 +28,7 @@ const routes: Routes = [
         path: "",
         component: SigninComponent,
     },
+  
 
     // {
     //     // path: "map",
@@ -52,6 +53,10 @@ const routes: Routes = [
         path: "learn",
         component: TutorialComponent,
     },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
 
   
 

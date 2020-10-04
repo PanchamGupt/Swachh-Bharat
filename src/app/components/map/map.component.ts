@@ -200,4 +200,9 @@ export class MapComponent implements OnInit {
         // console.log("c");
         // this.router.navigate(["/home"]);
     }
+
+
+    openProfile(){
+        this.router.navigate(['/profile'])
+    }
 }
