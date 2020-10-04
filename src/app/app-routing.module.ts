@@ -8,6 +8,7 @@ import { MapComponent } from "./components/map/map.component";
 import { TutorialComponent } from "./components/tutorial/tutorial.component";
 import { SettingsComponent } from "./components/settings/settings.component";
 import { IssueTypeComponent } from './components/issue-type/issue-type.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 const routes: Routes = [
     {
@@ -29,7 +30,10 @@ const routes: Routes = [
         component: SigninComponent,
     },
   
-
+    {
+        path: "change-password",
+        component: ChangePasswordComponent,
+    },
     // {
     //     // path: "map",
     //     // component: MapComponent,
@@ -40,10 +44,10 @@ const routes: Routes = [
         path: "issue-type",
         component: IssueTypeComponent,
     },
-    {
-        path: "settings",
-        component: SettingsComponent,
-    },
+    // {
+    //     path: "settings",
+    //     component: SettingsComponent,
+    // },
     // {
     //     path: "past-reports",
     //     loadChildren: () =>

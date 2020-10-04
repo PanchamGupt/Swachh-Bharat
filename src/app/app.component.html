@@ -6,6 +6,7 @@
             </ion-toolbar>
         </ion-header>
         <ion-content>
+            
             <ion-list>
                 <ion-item [routerLink]="['/tabs/tab/map']" (click)="toggleMenu()"
                     ><ion-icon name="add-circle-outline" slot="start"></ion-icon
@@ -17,16 +18,16 @@
                 >Past Reports</ion-item
             >
               
-                <ion-item [routerLink]="['/settings']" (click)="toggleMenu()"
-                    ><ion-icon name="settings-outline" slot="start"></ion-icon
-                    >Settings</ion-item
+                <ion-item [routerLink]="['/profile']" (click)="toggleMenu()"
+                    ><ion-icon name="person-outline" slot="start"></ion-icon
+                    >Profile</ion-item
                 >
                 <ion-item [routerLink]="['/learn']" (click)="toggleMenu()"
                     ><ion-icon name="book-outline" slot="start"></ion-icon>Learn
                     How To Use</ion-item
                 >
                 <ion-item [routerLink]="['/']" (click)="toggleMenu()"
-                    ><ion-icon name="book-outline" slot="start"></ion-icon>Log
+                    ><ion-icon name="power-outline" slot="start" color="danger"></ion-icon>Log
                     Out</ion-item
                 >
             </ion-list>

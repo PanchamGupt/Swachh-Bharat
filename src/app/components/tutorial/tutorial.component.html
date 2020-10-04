@@ -1,12 +1,17 @@
-<ion-header class="ion-no-border">
+<ion-header [translucent]="true">
     <ion-toolbar>
-        <!-- <ion-title>Header - No Border</ion-title> -->
-        <ion-buttons slot="start">
-            <ion-menu-button autoHide="false" >
-            </ion-menu-button>
-        </ion-buttons>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false" >
+        </ion-menu-button>
+    </ion-buttons>
+      <ion-title>
+        Learn
+      </ion-title>
+      <ion-icon name="person" slot="end" (click)="openProfile()"></ion-icon>
     </ion-toolbar>
-</ion-header>
+  </ion-header>
+
+
 <ion-content>
     <ion-item class="heading">
         <h4 >Learn How To Use this App</h4>
