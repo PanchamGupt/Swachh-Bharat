@@ -13,7 +13,31 @@
 <!-- <h5 style="margin-left: 10px;">Past Reports</h5> -->
 
     <!-- pagination -->
+  <!-- months -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item" (click)="generateMonths(-1)" id="monthpre">
+            <a class="page-link" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li
+            class="page-item" style='width:24vw;text-align: center;'
+            *ngFor="let month of months"
+            (click)="getIssues(date)">
+            <a class="page-link">
+                {{month}}
+            </a>
+        </li>
+        <li class="page-item" (click)="generateMonths(1)" id="monthnext">
+            <a class="page-link" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
 
+    <!-- Date -->
     <nav aria-label="Page navigation example" > 
         <ul class="pagination">
             <li class="page-item" (click)="generateDates(dates[3],-1)" id="pre"  >

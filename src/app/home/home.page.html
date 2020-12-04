@@ -10,7 +10,7 @@
 <ion-content [fullscreen]="true">
    
     <div class="homeImage">
-        <h5 class="text-center">Click Picture of House Address</h5>
+        <h6 class="text-center">Click Picture of House Address</h6>
 
         <img [src]="currentImageHome" />
 
@@ -18,7 +18,7 @@
     </div>
 
     <div class="dustbinImage">
-        <h5 class="text-center">Click Picture of Dustbin / Mixed Waste</h5>
+        <h6 class="text-center">Click Picture of Dustbin / Mixed Waste</h6>
   
         <img [src]="currentImageDustBin" />
 
@@ -38,11 +38,11 @@
         >
     </ion-button>
 
-    <ion-item class="home " lines="none" (click)="tackPictureHome()">
+    <ion-item class="home " lines="none" (click)="tackPictureHome()" style='font-size: 14px;'>
         <ion-icon name="camera" color="bright"></ion-icon> &nbsp;{{housePictureButtonText}}
     </ion-item>
 
-    <ion-item class="dustbin " lines="none" (click)="tackPictureDustBin()">
+    <ion-item class="dustbin " lines="none" (click)="tackPictureDustBin()" style='font-size: 14px;'>
         <ion-icon name="camera" color="bright"></ion-icon> &nbsp;{{wastePictureButtonText}}
     </ion-item>
     <br /><br />
